@@ -1,6 +1,6 @@
 .data
     str:    .asciiz "cadljgarhtoxAHdgdsJKhYEasduwBRLsdgHoptxnaseurh"
-    ssi:  .asciiz "Sorted string is "
+    ssi:    .asciiz "Sorted string is "
     nline:  .asciiz "\n"
     null:   .asciiz ""
     count:  .space 1024
@@ -26,12 +26,12 @@ store_count:
     sll     $t2, $t1, 2         # convert str[i] to word offset
     lw		$t3, count($t2)		# load count[str[i]]
     addi    $t3, $t3, 1         # ++count[str[i]]
-    sw      $t3, count($t2)         # store count[str[i]]
+    sw      $t3, count($t2)     # store count[str[i]]
     addi	$t0, $t0, 1			# ++i
     lb      $t1, str($t0)       # load str[i]
     bne     $t1, $t7, store_count
 
-    addi    $t0, $zero, 1      # i = 1
+    addi    $t0, $zero, 1       # i = 1
 change_count:
     addi    $t1, $t0, -1        # $t1 = i-1
     sll     $t2, $t0, 2         # convert i to word offset
